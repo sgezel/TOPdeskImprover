@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         TopDesk improv
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/sgezel/TOPdeskImprover/
 // @version      0.2
-// @description  try to take over the world!
-// @author       You
+// @description  Add much needed features to topdesk
+// @author       Sandor Gezel
 // @include      https://ergomedeom.topdesk.net/tas/secure/grid?gridpart=columns*
 // @grant        none
 // @require      http://code.jquery.com/jquery-2.2.4.min.js
