@@ -22,21 +22,27 @@
         var changedChildren = $("#\_uidwijzig").children();
         var nameChildren = $("#\_naam").children();
         var descChildren = $("#\_korteomschrijving").children();
+
+
+        //Er is een antwoord op een ticket
         for(i = 0; i<changedChildren.length; i++)
         {
-            if($(changedChildren[i]).text() == user)
+            if($(changedChildren[i]).text() == user || $(changedChildren[i]).text() == "")
             {
                 $("[line='" + $(changedChildren[i]).attr("line") + "']").css("background-color", answered);
             }
         }
+
+
+        //tickets die gereed zijn
         for(var i = 0; i<finishedChildren.length; i++)
         {
             if($(finishedChildren[i]).text() == "Ja")
             {
-                var color = finishedNoAnswer;
+                var color = finishedNoAnswer; //groen
                 for(var j = 0; j < changedChildren.length; j++)
                 {
-                    if($(changedChildren[i]).text() == user || $(changedChildren[i]).text() == "")
+                    if($(changedChildren[i]).text() === user || $(changedChildren[i]).text() == "") // er is een nieuw antwoord op een afgewerkt ticket
                     {
                         color = finishedNewAnswer;
                     }
@@ -44,7 +50,9 @@
                 $("[line='" + $(finishedChildren[i]).attr("line") + "']").css("background-color", color);
             }
         }
-        for(var i = 0; i < nameChildren.length; i++)
+
+       	//Kopieer een ticket details naar clipboard
+        for(i = 0; i < nameChildren.length; i++)
         {
             $(nameChildren[i]).on("click", function(){
                 var aux = document.createElement("input");
