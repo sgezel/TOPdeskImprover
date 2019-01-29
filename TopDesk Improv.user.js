@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TopDesk improv
 // @namespace    https://github.com/sgezel/TOPdeskImprover/
-// @version      0.2
+// @version      0.3
 // @description  Add much needed features to topdesk
 // @author       Sandor Gezel
 // @include      https://ergomedeom.topdesk.net/tas/secure/grid?gridpart=columns*
@@ -36,7 +36,7 @@
                 var color = finishedNoAnswer;
                 for(var j = 0; j < changedChildren.length; j++)
                 {
-                    if($(changedChildren[i]).text() == user)
+                    if($(changedChildren[i]).text() == user || $(changedChildren[i]).text() == "")
                     {
                         color = finishedNewAnswer;
                     }
