@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         TopDesk improv
 // @namespace    https://github.com/sgezel/TOPdeskImprover/
-// @version      0.4
+// @version      0.5
 // @description  Add much needed features to topdesk
 // @author       Sandor Gezel
 // @include      https://ergomedeom.topdesk.net/tas/secure/grid?gridpart=columns*
+// @include      https://ergomedeom.topdesk.net/tas/secure/incident*
 // @grant        none
 // @require      http://code.jquery.com/jquery-2.2.4.min.js
 // ==/UserScript==
@@ -17,6 +18,14 @@
     var notificationColor = "#B3FF99";
     var user = "TOPdesk Server";
     $(document).ready(function(){
+
+        $(".topbar").css("width", "100%");
+        $(".topbar").html($(".topbar").html() + "<span class='filter' style='float:right;'>"
+                          + "<div style='display:block;background-color:" + finishedNoAnswer + ";float:right; margin-right: 3px;'> Gereed, geen antwoord</div>"
+                          + "<div style='display:block;background-color:" + finishedNewAnswer + ";float:right; margin-right: 3px;'> Gereed, nieuw antwoord</div>"
+                          + "<div style='display:block;background-color:" + answered + ";float:right; margin-right: 3px;'> nieuw antwoord</div>"
+                          + "</span>");
+
         $("#columnsscroll").append("<div id='notify' style='display:none; position: absolute; top:0; left:0; z-index:99999; border:1px solid #000; background-color:" + notificationColor + ";'></div>'");
         var finishedChildren = $("#\_gereed").children();
         var changedChildren = $("#\_uidwijzig").children();
@@ -51,7 +60,7 @@
             }
         }
 
-       	//Kopieer een ticket details naar clipboard
+        //Kopieer een ticket details naar clipboard
         for(i = 0; i < nameChildren.length; i++)
         {
             $(nameChildren[i]).on("click", function(){
