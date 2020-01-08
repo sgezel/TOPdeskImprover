@@ -65,7 +65,7 @@
         {
             $(nameChildren[i]).on("click", function(){
                 var aux = document.createElement("input");
-                aux.setAttribute("value", $(this).text() + " - " + $(descChildren[$(this).attr("line")]).text());
+                aux.setAttribute("value", $(this).text() + "\t" + $(descChildren[$(this).attr("line")]).text() );
                 document.body.appendChild(aux);
                 aux.select();
                 document.execCommand("copy");
