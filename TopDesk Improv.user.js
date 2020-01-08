@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TopDesk improv
 // @namespace    https://github.com/sgezel/TOPdeskImprover/
-// @version      0.5
+// @version      0.6
 // @description  Add much needed features to topdesk
 // @author       Sandor Gezel
 // @include      https://ergomedeom.topdesk.net/tas/secure/grid?gridpart=columns*
